@@ -1,0 +1,19 @@
+{
+  "name": "scrapping-quiz",
+  "version": "1.0.0",
+  "description": "Scrap the quiz from different websites for various subjects.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "author": "Rajat",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.9",
+    "express": "^4.17.1",
+    "puppeteer": "^10.0.0"
+  },
+  "type": "module"
+}

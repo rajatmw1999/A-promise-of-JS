@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width:40%;">
+    <canvas id="myChart" width="30" height="30"></canvas>
+</div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js" integrity="sha512-VCHVc5miKoln972iJPvkQrUYYq7XpxXzvqNfiul1H4aZDwGBGC0lq373KNleaB2LpnC2a/iNfE5zoRYmB4TRDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        datasets: [{
+            label: 'Traffic',
+            data: [12, 15, 3, 5, 2, 3, 12, 15, 3, 5, 2, 3],
+            fill:true,
+            showLine:true,
+            borderWidth:2,
+            backgroundColor: [
+                'rgba(137, 196, 244, 0.5)',
+                'rgba(137, 196, 244, 0.5)',
+                'rgba(137, 196, 244, 0.5)',
+                'rgba(137, 196, 244, 0.5)',
+                'rgba(137, 196, 244, 0.5)',
+                'rgba(137, 196, 244, 0.5)',
+                'rgba(137, 196, 244, 0.5)',
+                'rgba(137, 196, 244, 0.5)',
+                'rgba(137, 196, 244, 0.5)',
+                'rgba(137, 196, 244, 0.5)',
+                'rgba(137, 196, 244, 0.5)',
+                'rgba(137, 196, 244, 0.5)',
+            ],
+            borderColor: [
+                'rgba(30, 139, 195, 1)',
+                // 'rgba(54, 162, 235, 1)',
+                // 'rgba(255, 206, 86, 1)',
+                // 'rgba(75, 192, 192, 1)',
+                // 'rgba(153, 102, 255, 1)',
+                // 'rgba(255, 159, 64, 1)'
+            ],
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+    
+</body>
+</html>
