@@ -14,8 +14,20 @@ app.get('/scrap', (req, res)=>{
         const recordList = await page.$$eval('div#main div#home-page article#post-1495',(trows)=>{
             let rowList = []
             let title = trows[0].getElementsByClassName("title")[0].innerHTML;
-            recordList = title;
-            return  title;
+            let questions = trows[0].querySelectorAll("p");
+            questions.forEach((question) => {
+                if(question.innerHTML.includes("<strong>")){
+                rowList.push(question.innerHTML);
+                }
+                
+            });
+            // questions = questions[1].innerHTML;
+            // recordList = title;
+            return rowList;
+
+            // abcdefgdfg
+            // .split('d')
+            // abcd , fefg , dfg
             // console.log("-------------"); 
             // console.log(trows);
             // console.log("-------------");
