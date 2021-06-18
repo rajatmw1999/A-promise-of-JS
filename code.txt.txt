@@ -1,0 +1,24 @@
+/*Type your code here .. */
+async function respond(inputText){
+	var weight = 0;
+	var input = inputText.toLowerCase();
+	for(var i=0; i<input.length; ++i)
+	{
+		weight = weight + Number(input.charCodeAt(i)-96);
+	}
+	Bot.send("Weight of the word is : " + weight);
+	if(weight % 2 == 0)
+		Bot.send("Even Number");
+	else
+		Bot.send("Odd Number");
+ }
+
+// abc = 1+2+3 = 6
+// ed = 5 + 4 = 9
+// ad = 1 + 4 = 5
+
+//  a = 97 = 1
+//  b = 98 = 2
+//  c = 99 = 3
+//  d = 100 = 4
+//  e = 101 = 5
