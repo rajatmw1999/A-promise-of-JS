@@ -5,8 +5,8 @@ const { S3Client, GetObjectCommand } = require("@aws-sdk/client-s3");
 
 
 app.get('/upload', async(req, res) => {
-    const client = new S3Client({accessKeyId: 'AKIAU6ZPXU5LT4UFZRSL', secretAccessKey: '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'});
-    const command = new GetObjectCommand({Bucket: 'testingbucket11june',
+    const client = new S3Client({accessKeyId: '', secretAccessKey: ''});
+    const command = new GetObjectCommand({Bucket: '',
         Key: 'myfilename.jpg',
         Expires: 3600});
     const url = await getSignedUrl(client, command, { expiresIn: 3600 });
