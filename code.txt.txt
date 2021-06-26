@@ -1,24 +1,66 @@
-/*Type your code here .. */
+Bot.send("Welcome to the greetings bot!");
+Bot.send("Enter 1 for Republic Day and 2 for Holi, 3 for entering your greetings.");
+var greetings = false;
+var myarray = [];
 async function respond(inputText){
-	var weight = 0;
-	var input = inputText.toLowerCase();
-	for(var i=0; i<input.length; ++i)
+	var no;
+	if(greetings === false)
+		no = inputText;
+	if(greetings === true)
 	{
-		weight = weight + Number(input.charCodeAt(i)-96);
+		var greet = inputText;
+		mygreeting(greet);
+		greetings = false;
 	}
-	Bot.send("Weight of the word is : " + weight);
-	if(weight % 2 == 0)
-		Bot.send("Even Number");
-	else
-		Bot.send("Odd Number");
- }
+	if(no == 1)
+	{
+		Bot.send(republic());
+	}
+	else if(no==2)
+	{
+		Bot.send(holi());
+	}
+	else if(no==3)
+	{
+		Bot.send("Please enter your greetings!");
+		greetings = true;
+	}	
+	
+}
 
-// abc = 1+2+3 = 6
-// ed = 5 + 4 = 9
-// ad = 1 + 4 = 5
+function republic(){
+	var greets = [
+		"Happy Republic Day 2019! Let’s recall the true heroes of India who sacrificed their lives to give us freedom.",
+		"Rejoice in the glory of the nation and do not forget to thank the soldiers. Happy Republic Day 2019.",
+		"Let us join hands to protect our nations from all the social evils that are plaguing it. Happy Republic Day 2019.",
+		"Be proud that you are an Indian because lucky are those who are born in this great country. Happy Republic Day 2019!",
+		"Freedom in the mind, Strength in the words, Pureness in our blood, Pride in our souls, Zeal in our hearts, Let’s salute our India on Republic Day. Happy Republic Day 2019."
+	];
+	let rn = random();
+	console.log(rn);
+	return greets[rn];
+}
 
-//  a = 97 = 1
-//  b = 98 = 2
-//  c = 99 = 3
-//  d = 100 = 4
-//  e = 101 = 5
+function holi(){
+	var greets = [
+		"May this festival of colors fill colors in your life. To every shade of you, I wish happy and colorful holi!",
+		"Happy holi from mine to yours. Hope you have a colorful day and a colorful life with all kind of right twists in the color.",
+		"The best part of the year has arrived. Its holi time, let me color you with all the beautiful colors and make sure you enjoy it to the best, happy holi!",
+		"Holi isn’t a day’s celebration, it’s a season full of love , emotion and color. Happy holi!",
+		"May God grant you peace of mind and good health. Happy Holi!"
+	];
+	var rn = random();
+	console.log(rn);
+	return greets[rn];
+}
+
+function random(){
+	var rn = Date.now() % 5;
+	return rn;
+}
+
+function mygreeting(input){
+	myarray.push(input);
+	for(let i=0; i<myarray.length; ++i)
+		Bot.send(myarray[i]);
+}
