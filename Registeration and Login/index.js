@@ -8,10 +8,10 @@ var crypto = require('crypto');
 
 //CONNECT TO THE DATABASE
 let connection = mysql.createConnection({
-    host: 'testdatabase.c8q9zbgejkeb.us-east-2.rds.amazonaws.com',
-    user: 'admin',
-    password: 'admin123',
-    database: 'camp'
+    host: 'testdatabase..us-east-2.rds.amazonaws.com',
+    user: '',
+    password: '',
+    database: ''
 });
 
 connection.connect(function(err) {
