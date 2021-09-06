@@ -25,17 +25,18 @@ connection.connect(function(err) {
 
 //CREATE THE USER TABLE
 app.get('/createTable', async(req, res) => {
-    let createUser = `create table if not exists user(
+    let createUser = `create table if not exists users(
                             id int primary key auto_increment,
                             email varchar(255) not null,
                             password varchar(255) not null
                         )`;
      
-    let createPost = `create table if not exists post(
+    let createPost = `create table if not exists posts(
         id int primary key auto_increment,
         title varchar(50),
         body varchar(255),
-        likes int default 0
+        likes int default 0,
+        user_id int not null
     )`;
     
     connection.query(createUser, function(err, results, fields) {
@@ -114,9 +115,9 @@ app.post('/account/login', async(req, res)=> {
 });
 
 app.post('/post/create', async(req, res) => {
-    var {title, body} = req.body;
+    var {user_id, title, body} = req.body;
 
-    let createPost = `insert into post values(0,'${title}','${body}',0)`;
+    let createPost = `insert into post values(0,'${title}','${body}',0, ${user_id})`;
     connection.query(createPost, function(err, results, fields) {
         if (err) {
             console.log(err.message);
@@ -128,6 +129,17 @@ app.post('/post/create', async(req, res) => {
 app.get('/post/all', async(req, res) => {
 
     let getAllPosts = `select * from post`;
+    connection.query(getAllPosts, function(err, results, fields) {
+        if (err) {
+            console.log(err.message);
+        }
+        return res.send(results);
+    });
+});
+
+app.get('/post/:id', async(req, res) => {
+
+    let getAllPosts = `select * from post where id=${req.params.id}`;
     connection.query(getAllPosts, function(err, results, fields) {
         if (err) {
             console.log(err.message);
