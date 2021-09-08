@@ -1,0 +1,4 @@
+node_modules/
+LoginSignupNodejs/node_modules
+LoginSignupNodejs/*.env
+env
